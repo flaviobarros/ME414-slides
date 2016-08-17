@@ -517,7 +517,7 @@ QI
 
 > Ordenando:
 
-```{r,echo=FALSE}
+```{r, echo=FALSE}
 sort(QI)
 ```
 
@@ -525,7 +525,7 @@ sort(QI)
 
 Dados ordenados:
 
-```{r,echo=FALSE}
+```{r, echo=FALSE}
 sort(QI)
 ```
 
@@ -539,9 +539,15 @@ sort(QI)
 
 ## Exemplo: QI
 
-```{r,echo=FALSE}
+```{r, echo=FALSE}
 dadosQI <- data.frame(QI = QI)
-hist(QI, col="lightblue", xlab="QI", ylab="Frequência", main=" ", cex.lab=1.5, cex.axis=1.5)
+## hist(QI, col="lightblue", xlab="QI", ylab="Frequência", main=" ", cex.lab=1.5, cex.axis=1.5)
+
+ggplot(data=dadosQI, aes(dadosQI$QI)) + 
+    geom_histogram(bins = 9, colour="black", fill="blue") +
+    labs(x="QI", y="Frequência") +
+    theme(axis.title = element_text(face="bold", size=12, color="black"),
+          axis.text = element_text(face="bold", size=12, color="black"))
 ```
 
 
@@ -566,7 +572,7 @@ stem(QI)
 
 Um professor apresenta à classe as notas do exame usando um gráfico de ramo-e-folhas.
 
-```{r,echo=FALSE}
+```{r, echo=FALSE}
 notas <- c(65,68,68,70,71,71,73,76,77,77,79,81,82,82,83,83,83,84,86,87,87,87,88,89,90,91,91,92,93,94,94,95,98)
 stem(notas,scale=0.5)
 ```
